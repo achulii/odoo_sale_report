@@ -1,71 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <template id="pricelist_report_inherit" inherit_id="product.report_pricelist_page">
-        <xpath expr="//div[@class='container bg-white p-4 my-4']" position="replace">
-            <div class="container bg-white p-4 my-4">
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>
-                                Product title
-                            </th>
-                            <th>
-                                Price
-                            </th>
-                            <th style="margin: auto auto; text-align: center;">
-                                Image
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <t t-foreach="products" t-as="product">
-                            <tr>
-                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
-                                    style="height:150px;">
-                                    <a t-if="is_html_type" href="#" class="o_action"
-                                        t-att-data-model="is_product_tmpl and
-'product.template' or 'product.product'"
-                                        t-att-data-res-id="product['id']">
-                                        <t t-esc="product['name']" />
-                                    </a>
-                                    <t t-else="">
-                                        <t t-esc="product['name']" />
-                                    </t>
-                                </td>
-                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
-                                    style="height: 150px;">
-                                    <t t-set="prices" t-value="product['price']" />
-                                    <t t-foreach="prices.keys()" t-as="key">
-                                        <t t-if="key == 1">
-                                            <strong>
-                                                <t t-esc="prices[key]" />
-                                            </strong>
-                                        </t>
-                                    </t>
-                                </td>
-                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
-                                    align="center" style="height: 150px;">
-                                    <t t-if="product['image']">
-                                        <img t-att-src="image_data_uri(product['image'])"
-                                            style="width: 200px;
-                                        height: 200px;" />
-                                    </t>
-                                    <t t-else="">
-                                        <span
-                                            style="
-                                        display: block;
-                                        margin: auto auto;
-                                        text-align: center;
-                                        ">
-                                            No image
-                                        </span>
-                                    </t>
-                                </td>
-                            </tr>
-                        </t>
-                    </tbody>
-                </table>
-            </div>
-        </xpath>
-    </template>
+   <template id="pricelist_report_inherit" inherit_id="product.report_pricelist_page">
+      <xpath expr="//div[@class='container bg-white p-4 my-4']" position="replace">
+         <div class="container bg-white p-4 my-4">
+            <table class="table table-sm">
+               <thead>
+                  <tr>
+                     <th>Product title</th>
+                     <th>Price</th>
+                     <th style="margin: auto auto; text-align: center;">Image</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <t t-foreach="products" t-as="product">
+                     <tr>
+                        <td t-att-class="is_product_tmpl and 'fw-bold' or None" style="height:150px;">
+                           <a t-if="is_html_type" href="#" class="o_action" t-att-data-model="is_product_tmpl and 'product.template' or 'product.product'" t-att-data-res-id="product['id']">
+                              <t t-esc="product['name']" />
+                           </a>
+                           <t t-else="">
+                              <t t-esc="product['name']" />
+                           </t>
+                        </td>
+                        <td t-att-class="is_product_tmpl and 'fw-bold' or None" style="height: 150px;">
+                           <t t-set="prices" t-value="product['price']" />
+                           <t t-foreach="prices.keys()" t-as="key">
+                              <t t-if="key == 1">
+                                 <strong>
+                                    <t t-esc="prices[key]" />
+                                 </strong>
+                              </t>
+                           </t>
+                        </td>
+                        <td t-att-class="is_product_tmpl and 'fw-bold' or None" align="center" style="height: 150px;">
+                           <t t-if="product['image']">
+                              <img t-att-src="image_data_uri(product['image'])" style="width: 200px; height: 200px;" />
+                           </t>
+                           <t t-else="">
+                              <span style="display: block; margin: auto auto; text-align: center; height: 200px;">
+                                No image
+                            </span>
+                           </t>
+                        </td>
+                     </tr>
+                  </t>
+               </tbody>
+            </table>
+         </div>
+      </xpath>
+   </template>
 </odoo>
