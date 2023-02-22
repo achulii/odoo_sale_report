@@ -20,7 +20,8 @@
                     <tbody>
                         <t t-foreach="products" t-as="product">
                             <tr>
-                                <td t-att-class="is_product_tmpl and 'fw-bold' or None">
+                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
+                                    style="height:150px;">
                                     <a t-if="is_html_type" href="#" class="o_action"
                                         t-att-data-model="is_product_tmpl and
 'product.template' or 'product.product'"
@@ -31,44 +32,40 @@
                                         <t t-esc="product['name']" />
                                     </t>
                                 </td>
-                                <td>
+                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
+                                    style="height: 150px;">
                                     <t t-set="prices" t-value="product['price']" />
                                     <t t-foreach="prices.keys()" t-as="key">
                                         <t t-if="key == 1">
-                                            <strong><t t-esc="prices[key]" style="display:block; margin: auto auto;"/> </strong>
+                                            <strong>
+                                                <t t-esc="prices[key]" />
+                                            </strong>
                                         </t>
                                     </t>
-                                    
                                 </td>
-                                <td style="height: 192px;">
+                                <td t-att-class="is_product_tmpl and 'fw-bold' or None"
+                                    align="center" style="height: 150px;">
                                     <t t-if="product['image']">
-                                        <img t-att-src="image_data_uri(product['image'])" 
-                                        style="width: 200px;
-                                        height: 200px;
-                                        display: block;
-                                        margin: auto auto;" />
-
+                                        <img t-att-src="image_data_uri(product['image'])"
+                                            style="width: 200px;
+                                        height: 200px;" />
                                     </t>
-
                                     <t t-else="">
-                                        <span style="
+                                        <span
+                                            style="
                                         display: block;
                                         margin: auto auto;
                                         text-align: center;
                                         ">
                                             No image
                                         </span>
-                                    </t>   
-                            </td>
+                                    </t>
+                                </td>
                             </tr>
                         </t>
                     </tbody>
                 </table>
-
-
             </div>
-
-
         </xpath>
     </template>
 </odoo>
