@@ -5,6 +5,6 @@ class ProductPricelistReportInherited(models.AbstractModel):
 
     def _get_product_data(self, is_product_tmpl, product, pricelist, quantities):
         data = super()._get_product_data(is_product_tmpl, product, pricelist, quantities)
-        product_product = self.env['product.product'].search([('id', '=', data['id'])])
-        data['image'] = product_product.image_1920 if product_product.image_1920 else ''
+        image = self.env['product.product'].search([('product_tmpl_id', '=', product.id)], limit=1).image_1920
+        data['image'] = image
         return data
