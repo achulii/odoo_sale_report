@@ -45,14 +45,4 @@
          </div>
       </xpath>
    </template>
-
-   <template id="report_pricelist_inherit" inherit_id="product.report_pricelist">
-      <xpath expr="//t[@t-call='web.basic_layout']" position="replace">
-         <t t-call="web.basic_layout">
-            <div>
-               <t t-call="product.report_pricelist_page" />
-            </div>
-         </t>
-      </xpath>
-   </template>
 </odoo>
