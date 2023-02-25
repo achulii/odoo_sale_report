@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-   <template id="pricelist_report_inherit" inherit_id="product.report_pricelist_page">
-      <xpath expr="//div[@class='container bg-white p-4 my-4']" position="replace">
+   <template id="pricelist_report_page_new" >
          <div class="container bg-white p-4 my-4">
+            <strong>ALLALAALAL</strong>
             <table class="table table-sm">
                <thead>
                   <tr>
@@ -27,20 +27,32 @@
                                  style="width: 200px; height: 200px; display: block; margin: auto auto" />
                            </t>
                            <t t-else="">
-                              <!-- <span
+                              <span
                                  style="display: block; margin: auto auto; text-align: center; height: 200px;">
                                  No image
-                              </span> -->
+                              </span>
                               <!-- /web/static/img/placeholder.png -->
-                              <img src="/web/static/img/placeholder.png"
+                               <img src="/web/static/img/placeholder.png"
                                  style="width: 200px; height: 200px; display: block; margin: auto auto" />
-                           </t>
+                            </t>
                         </td>
                      </tr>
                   </t>
                </tbody>
             </table>
          </div>
-      </xpath>
    </template>
+
+
+
+<template id="report_pricelist_new">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-call="new_sales_report.pricelist_report_page_new" />
+
+        </div>
+        <p style="page-break-before:always;"> </p>
+    </t>
+</template>
+
 </odoo>

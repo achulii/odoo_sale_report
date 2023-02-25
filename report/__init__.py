@@ -1,1 +1,1 @@
-from . import product_pricelist_report_inherited
+from . import product_pricelist_report_new

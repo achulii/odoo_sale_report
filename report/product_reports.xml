@@ -1,0 +1,9 @@
+<odoo>
+    <record id="action_report_pricelist_new" model="ir.actions.report">
+        <field name="name">Pricelist New</field>
+        <field name="model">product.product</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">new_sales_report.report_pricelist_new</field>
+        <field name="report_file">new_sales_report.report_pricelist_new</field>
+    </record>
+</odoo>
